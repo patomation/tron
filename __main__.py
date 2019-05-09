@@ -19,7 +19,7 @@ def main():
     sort = 'relivance'
     pages=10
 
-    query = 'https://www.reddit.com/'+subReddit+'/search.json?q='+searchQuery+'&restrict_sr=1&sort='+sort
+    query = r'https://www.reddit.com/'+subReddit+'/search.json?q='+searchQuery+'&restrict_sr=1&sort='+sort+'&count=25'
 
     posts = []
     after = ''
@@ -29,16 +29,23 @@ def main():
         print 'working on page '+str(page)+' of '+str(pages)
         data = requests.get(query+after, headers=headers).json()
 
-        # Set next after or set next page
-        after = data['data']['after']
-
         # Clean data
         cleanPosts = cleanMyData.clean(data)
 
         # store clean posts
         posts.extend(cleanPosts)
-        print len(cleanPosts)
+
         page += 1
+
+        # Set next after or set next page
+        if data['data']['after'] != None:
+            after = '&after='+data['data']['after']
+        else:
+            # Do not run again no more paginations
+            print 'There were no more pages'
+            break
+
+
 
     # Create target Directory
     dirName = './output'
@@ -49,11 +56,13 @@ def main():
         print("Directory " , dirName ,  " already exists")
 
     # Make json file
+    print "Writing json file"
     fileName = dirName+"/redditposts.json"
     with open(fileName, 'w') as outfile:
         json.dump(posts, outfile)
 
     # Make xlsx file
+    print "Writing exell file"
     writeToXLSX.write(posts, dirName+'/redditposts.xlsx')
 
     # Let me know when your done
