@@ -28,6 +28,7 @@ pip install requests
 pip install beautifulsoup4
 pip install xlsxwriter
 pip install numpy
+pip install argparse
 ```
 
 ## Going Forward
