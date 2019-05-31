@@ -1,67 +1,43 @@
-from pprint import pprint
-import json
-from bs4 import BeautifulSoup
-import sys
+import argparse
 import os
-
-# My Modules
-from modules import writeToXLSX
-from modules import getPosts
+import scraper
 
 def main():
+    parser = argparse.ArgumentParser(description='Bulk Saving Of Job Posts')
+    parser.add_argument('-q',
+                    help='Search Term Query')
+    parser.add_argument('-l',
+                    help='Location')
+    parser.add_argument('-o',
+                    help='Output location')
+    parser.add_argument('--json',
+                    help='Export Json File')
+    parser.add_argument('--xlsx',
+                    help='Export Excel File')
 
-    subReddit = 'webdev'
+    args = parser.parse_args()
 
+    # print(args.accumulate(args.integers))
+    if args.l == None:
+        print "Must include location with: -l 'location'"
+        exit
+    if args.q == None:
+        print "Must include search term with: -q 'job title'"
+        exit
 
-    searchQueries = [
-        'how do I',
-        'How do you',
-        'How can I',
-        'I cant stand',
-        'Im struggling with',
-        'Can someone help',
-        'Figure out',
-        'Help me',
-        'Tips',
-        'Suggestions',
-        'Suggest',
-        'Biggest challenge',
-        'Biggest challenges',
-        'Hardest part',
-        'Biggest struggle',
-        'Struggle with'
-    ]
-
-    posts = []
-    for searchQuery in searchQueries:
-        posts.extend(getPosts.getPosts(subReddit, searchQuery))
-
-
-
-    # Create target Directory
-    dirName = './output'
-    try:
-        os.mkdir(dirName)
-        print("Directory " , dirName ,  " Created ")
-    except:
-        print("Directory " , dirName ,  " already exists")
-
-    # A file name using the subReddit
-
-    fileName = subReddit+'-question-posts';
-
-    # Make json file
-    print 'Writing json file'
-    filePath = dirName+'/'+fileName+'.json'
-    with open(filePath, 'w') as outfile:
-        json.dump(posts, outfile)
-
-    # Make xlsx file
-    print 'Writing exell file'
-    writeToXLSX.write(posts, dirName+'/'+fileName+'.xlsx')
-
-    # Let me know when your done
-    print 'Done BRO'
+    if( args.q != None and args.l != None ):
+        print 'make this stuff happen'
+        output = ''
+        if (args.o == None):
+            fileName = args.l.replace(' ','-').replace(',','')+'-'+args.q.replace(' ','-')
+            output = os.getcwd() + '/' + fileName + '.xlsx'
+        else:
+            output = args.o
+        scraper.scrape({
+            'location': args.l,
+            'search': args.q,
+            'output': output
+        })
 
 if __name__ == "__main__":
     main()

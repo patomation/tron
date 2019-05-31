@@ -1,24 +1,25 @@
-# Reddit Question Scraper
-Features:
-Right now the script searches r/webdev for questions formed as "How Do I."
-It paginates 10 pages
-Exports a json file and xcell file.
-- redditposts.json
-- redditposts.xlsx
-
-It filters down the post data( stuff that I think is relevant)
-- Title
-- Score
-- Comments
-- URL
-- Date
-I can then do other things in excel to sort the data to my linking
+# Indeed Scraper
 
 # USAGE
 ```
-python reddit-quesiton-Scraper
-or
-python __main__.py
+indeed -l 'Portland, OR' -q 'Software Engineer' -o jobsearch.xlsx
+```
+or run python file:
+```
+python __main__.py -l 'Portland, OR' -q 'Software Engineer' -o jobsearch.xlsx
+```
+run example:
+```
+python example.py
+```
+
+# Installation
+```
+git clone http://github.com/patomation/indeed-scraper ~/.indeed-scraper
+```
+
+```
+echo 'alias indeed="python ~/.indeed-scraper/"' >> ~/.bashrc
 ```
 
 ## Getting Started
@@ -27,14 +28,8 @@ Install all the dependencies
 pip install requests
 pip install beautifulsoup4
 pip install xlsxwriter
-pip install numpy
 pip install argparse
 ```
+...and more....
 
 ## Going Forward
-I want to add a couple of things.
-- Declaring subReddit
-- number of pages of pagination
-- output names and destinations
-
-Tests?
