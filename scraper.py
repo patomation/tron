@@ -24,23 +24,23 @@ def scrape(props):
     print " "
     print " "
 
-    url='https://www.indeed.com/jobs?q='+props['search'].replace(' ','%20')+'&l='+props['location'].replace(' ','%20').replace(',','%2C')
-    page = html.parse(url)
-
-    totalJobs = int(page.find('div', { 'id':'searchCount'}).text.split('of ')[1].replace(' jobs','').replace(',',''))
-    pages = totalJobs
-
     # Abstracts checking if element exists to prevent erors
     def text (element):
         string = ''
         if element != 'None':
-            hasattr
             if hasattr(element, 'text'):
                 string = element.text.replace('  ','')
-            else:
-                print 'warn: no text attribute---------------'
-                print element
         return string
+
+    url='https://www.indeed.com/jobs?q='+props['search'].replace(' ','%20')+'&l='+props['location'].replace(' ','%20').replace(',','%2C')
+    page = html.parse(url)
+
+    totalJobsText = text( page.find('div', { 'id':'searchCount'}) )
+    if totalJobsText == '':
+        print 'NO RESULTS FOUND'
+        return
+
+    pages = int(totalJobsText.split('of ')[1].replace(' jobs','').replace(',',''))
 
     jobs = []
     currentPage = 0
@@ -79,14 +79,14 @@ def scrape(props):
     # print jobs
     print '...Processing Output Files....'
     excel.write({
-        'colums':{
-            'A' : 'company'   ,
-            'B' : 'applied'   ,
-            'C' : 'title'     ,
-            'D' : 'location'  ,
-            'E' : 'date'      ,
-            'F' : 'applyUrl'  ,
-            'G' : 'jobPostUrl',
+        'columns':{
+            'A' : {'label':'company'   ,'width':30},
+            'B' : {'label':'applied'   ,'width': 5},
+            'C' : {'label':'title'     ,'width':30},
+            'D' : {'label':'location'  ,'width':10},
+            'E' : {'label':'date'      ,'width':10},
+            'F' : {'label':'applyUrl'  ,'width':30},
+            'G' : {'label':'jobPostUrl','width':30},
         },
         'items':jobs,
         'fileName': props['output']
