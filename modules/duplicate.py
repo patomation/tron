@@ -34,4 +34,6 @@ def file(sourcePath):
 
     destinationPath = path +'/'+ fileName +'.'+ extension
 
+    print sourcePath
+    print destinationPath
     copyfile(sourcePath, destinationPath)

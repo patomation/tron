@@ -10,4 +10,4 @@ def file(sourcePath):
     destinationPath = path +'/'+ fileName +'_backup'+'.'+ extension
     print sourcePath
     print destinationPath
-    # copyfile(sourcePath, destinationPath)
+    copyfile(sourcePath, destinationPath)
