@@ -1,43 +1,26 @@
-import argparse
-import os
-import scraper
+from modules import startScreen, arguments
+
+# Command Argument Functions
+from modules import backup, duplicate
 
 def main():
-    parser = argparse.ArgumentParser(description='Bulk Saving Of Job Posts')
-    parser.add_argument('-q',
-                    help='Search Term Query')
-    parser.add_argument('-l',
-                    help='Location')
-    parser.add_argument('-o',
-                    help='Output location')
-    parser.add_argument('--json',
-                    help='Export Json File')
-    parser.add_argument('--xlsx',
-                    help='Export Excel File')
+    startScreen.show();
 
-    args = parser.parse_args()
+    arguments.add({
+        'arg': '-b',
+        'help': 'Backup [file location]',
+        'function': backup.file
+    })
+    arguments.add({
+        'arg': '-d',
+        'help': 'Duplicate [file location]',
+        'function': duplicate.file
+    })
 
-    # print(args.accumulate(args.integers))
-    if args.l == None:
-        print "Must include location with: -l 'location'"
-        exit
-    if args.q == None:
-        print "Must include search term with: -q 'job title'"
-        exit
+    arguments.start()
 
-    if( args.q != None and args.l != None ):
-        print 'make this stuff happen'
-        output = ''
-        if (args.o == None):
-            fileName = args.l.replace(' ','-').replace(',','')+'-'+args.q.replace(' ','-')
-            output = os.getcwd() + '/' + fileName + '.xlsx'
-        else:
-            output = args.o
-        scraper.scrape({
-            'location': args.l,
-            'search': args.q,
-            'output': output
-        })
-
+    print '----------------------------------'
+    print ' D O N E'
+    print '----------------------------------'
 if __name__ == "__main__":
     main()
