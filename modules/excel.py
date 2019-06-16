@@ -3,7 +3,9 @@ import xlsxwriter
 import string
 
 alphabet = str(string.ascii_uppercase)
-
+# props
+# - fileName
+# - culloms
 def write(props):
     print 'WRITE EXCEL-----------------------------'
 
