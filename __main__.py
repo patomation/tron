@@ -7,20 +7,40 @@ def main():
     startScreen.show();
 
     arguments.add({
-        'arg': '-b',
-        'help': 'Backup [file location]',
-        'function': backup.file
+        'name':'file',
+        'help': 'File Managerment Tool',
+        'args':{
+            '-d': 'Duplicate [PATH]',
+            '-b': 'Backup [PATH]'
+        }
     })
     arguments.add({
-        'arg': '-d',
-        'help': 'Duplicate [file location]',
-        'function': duplicate.file
+        'name':'file',
+        'help': 'File Managerment Tool',
+        'args':{
+            '-d': 'Duplicate [PATH]',
+            '-b': 'Backup [PATH]'
+        }
     })
 
-    arguments.start()
+    arguments.add({
+        'name':'scrape',
+        'help': 'Scrape',
+        'args':{
+            '--gs': 'Google Search Results [URL]'
+        },
+        'do': 'stuff'
+    })
 
-    print '----------------------------------'
-    print ' D O N E'
-    print '----------------------------------'
+
+    args = arguments.get()
+
+    if args.which == 'file':
+        if args.d:
+            duplicate.file(args.d)
+        elif args.b:
+            backup.file(args.b)
+
+
 if __name__ == "__main__":
     main()

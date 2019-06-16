@@ -31,8 +31,11 @@ def file(sourcePath):
     # is not version number
     else:
         fileName = fileName + '_000'
+    
+    if path:
+        path = path +'/'
 
-    destinationPath = path +'/'+ fileName +'.'+ extension
+    destinationPath = path + fileName +'.'+ extension
 
     print sourcePath
     print destinationPath

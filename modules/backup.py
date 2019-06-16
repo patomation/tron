@@ -7,7 +7,10 @@ def file(sourcePath):
     path, file = ntpath.split(sourcePath)
     fileName, extension = file.split('.')
 
-    destinationPath = path +'/'+ fileName +'_backup'+'.'+ extension
+    if path:
+        path = path +'/'
+
+    destinationPath = path + fileName +'_backup'+'.'+ extension
     print sourcePath
     print destinationPath
     copyfile(sourcePath, destinationPath)

@@ -1,31 +1,18 @@
 import argparse
-import sys
 
-parser = argparse.ArgumentParser(description='TRON computer automator/ helper')
+parser = argparse.ArgumentParser()
+subparser = parser.add_subparsers()
 
-# Function storeage
-functions = {}
-
+# PROPS
+# - name - String: sub parser name
+# - args - Object: Key name Value help description
 def add(props):
-    # Store functionz
-    functions[props['arg'].replace('-','')] = props['function']
+    # Create new sub parser
+    newSubParser = subparser.add_parser(props['name'])
+    # Set which arg so we can find it later
+    newSubParser.set_defaults(which=props['name'])
+    for key in props['args']:
+        newSubParser.add_argument(key, help=props['args'][key])
 
-    parser.add_argument(
-        props['arg'],
-        help=props['help'])
-
-def start():
-    # Display help if no command given
-    if len(sys.argv)==1:
-        parser.print_help(sys.stderr)
-        sys.exit(1)
-
-    args = parser.parse_args()
-
-    # For each stored function
-    for key in functions:
-        # Get argument value if any
-        argValue = vars(args)[key]
-        # If argument used find matching stored function
-        if argValue:
-            functions[key](argValue)
+def get():
+    return parser.parse_args()
