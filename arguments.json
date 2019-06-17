@@ -1,0 +1,24 @@
+{
+  "file":{
+    "name":"file",
+    "help":"File handeler Tool",
+    "args":{
+        "-d": {
+          "help":"Duplicate [PATH]"
+        },
+        "-b": {
+          "help":"Backup [PATH]"
+        }
+    }
+  },
+  "job":{
+    "name":"job",
+    "help":"Job Helper Tool",
+    "args":{
+        "-a": {
+            "help":"Applied for job",
+            "action": "store_false"
+        }
+    }
+  }
+}
