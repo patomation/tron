@@ -1,12 +1,4 @@
-# _________ _______  _______  _       
-# \__   __/(  ____ )(  ___  )( (    /|
-#    ) (   | (    )|| (   ) ||  \  ( |
-#    | |   | (____)|| |   | ||   \ | |
-#    | |   |     __)| |   | || (\ \) |
-#    | |   | (\ (   | |   | || | \   |
-#    | |   | ) \ \__| (___) || )  \  |
-#    )_(   |/   \__/(_______)|/    )_)
-
+# TRON CLI - Python
 
 My attempt to make a command line interface helper inspired by the movie Tron.
 In the movie Flynn as a command line AI called Tron. I thought it would be cool to name my utility the same. Although not an ai... yet, it has the potential to be the starting point of all my automation of boring stuff.
