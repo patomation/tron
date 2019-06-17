@@ -2,31 +2,62 @@ import argparse
 
 parser = argparse.ArgumentParser()
 subparser = parser.add_subparsers()
+
+# Checks daya key value or uses default
+def check(data, key, default):
+    if key in data:
+        value = data[key]
+    else:
+        value = default
+    return value
+
+def addSubArgument(name, help, args):
+    # Create sub parser
+    newSubParser = subparser.add_parser(
+        name,
+        help=help)
+    newSubParser.set_defaults(which=name)
+
+    # Add sub parser flags
+    for argName in args:
+        arg = args[argName]
+        newSubParser.add_argument(
+            argName,
+            help=arg['help'],
+            action=check(data=arg,key='action',default='store'),
+            required=check(data=arg,key='required',default='required')
+        )
+
+def addArgument(name, help, action, required):
+    parser.add_argument(
+        name,
+        help=help,
+        action=action,
+        required=required
+    )
+
 # PROPS
 # - arguments - dict
 def addArguments(arguments):
     for name in arguments:
         argument = arguments[name]
+        # Flagged arguments
+        if name[:1] == '-':
+            addArgument(
+                name=name,
+                help=argument['help'],
+                action=check(data=argument, key='action', default=True),
+                required=check(data=argument, key='required', default=False)
+            )
+        # Sub arguments
+        else:
+            addSubArgument(
+                name=name,
+                help=argument['help'],
+                args=argument['args'])
 
-        # Create sub parser
-        newSubParser = subparser.add_parser(name)
-        newSubParser.set_defaults(which=name)
 
-        # Add sub parser flags
-        for argName in argument['args']:
-            arg = argument['args'][argName]
-            # Help text is required
-            help = arg['help']
-            # Action store value by default
-            # store_true and Store_false would let you use a flag wihtout a value...
-            if 'action' in arg:
-                action = arg['action']
-            else:
-                action = 'store'
-            newSubParser.add_argument(
-                argName,
-                help=help,
-                action=action )
+
 
 # PROPS
 # - name - String: sub parser name

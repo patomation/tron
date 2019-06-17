@@ -1,6 +1,6 @@
-from modules import startScreen, importJson, parser
-arguments = importJson.load('/arguments.json')
-import commands
+from modules import startScreen, Json, parser
+arguments = Json.importer('/arguments.json')
+import command
 
 def main():
     startScreen.show();
@@ -8,7 +8,7 @@ def main():
     # Add all arguments from arguments config file
     parser.addArguments(arguments)
 
-    commands.run( parser.getArgs() )
+    command.run( parser.getArgs() )
 
 
 

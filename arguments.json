@@ -11,14 +11,28 @@
         }
     }
   },
-  "job":{
-    "name":"job",
-    "help":"Job Helper Tool",
+  "job_applied":{
+    "help":"Save a job you just applied for",
     "args":{
-        "-a": {
-            "help":"Applied for job",
-            "action": "store_false"
+        "-c": {
+          "help":"Company Name",
+          "action": "store",
+          "required": "True"
+        },
+        "-p": {
+          "help":"Position",
+          "action": "store",
+          "required": "True"
+        },
+        "--url": {
+          "help":"URL",
+          "action": "store",
+          "required": "True"
         }
     }
+  },
+  "-V":{
+    "help":"Verbose",
+    "action": "store_true"
   }
 }

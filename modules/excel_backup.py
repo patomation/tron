@@ -1,27 +1,12 @@
-import json, string
-import xlsxwriter, xlwt, xlrd
-from openpyxl import load_workbook
-import os
+import json
+import xlsxwriter
+import string
+
 alphabet = str(string.ascii_uppercase)
-import expandUserPath
 
-# workbook = xlrd.open_workbook(path)
-# print workbook.sheets()[0].cell(1,0)
-
-def append(path, data):
-    workbook = load_workbook(filename = expandUserPath.get(path))
-    # print workbook.sheetnames
-    worksheet = workbook.worksheets[0]
-    nextRow = worksheet.max_row + 1
-    index = 1
-    for item in data:
-        print item
-        worksheet.cell(
-            row=nextRow,
-            column=index,
-            value=item)
-        index += 1
-    workbook.save(filename = expandUserPath.get(path));
+def open(file):
+    print 'open file'
+    print file
 
 # props
 # - fileName

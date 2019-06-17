@@ -1,5 +1,5 @@
 import json
 import rootPath
 
-def load(path):
+def importer(path):
     return json.load(open(rootPath.get()+path))
