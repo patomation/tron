@@ -1,25 +1,41 @@
-# Indeed Scraper
+# _________ _______  _______  _       
+# \__   __/(  ____ )(  ___  )( (    /|
+#    ) (   | (    )|| (   ) ||  \  ( |
+#    | |   | (____)|| |   | ||   \ | |
+#    | |   |     __)| |   | || (\ \) |
+#    | |   | (\ (   | |   | || | \   |
+#    | |   | ) \ \__| (___) || )  \  |
+#    )_(   |/   \__/(_______)|/    )_)
+
+
+My attempt to make a command line interface helper inspired by the movie Tron.
+In the movie Flynn as a command line AI called Tron. I thought it would be cool to name my utility the same. Although not an ai... yet, it has the potential to be the starting point of all my automation of boring stuff.
+
+So far it doesn't do much aside from copying files in two different ways.
+
+Going forward I would like to add job search helpers and task helpers to update excel files and documents that I use daily.
+
 
 # USAGE
+### Duplicate File
 ```
-indeed -l 'Portland, OR' -q 'Software Engineer' -o jobsearch.xlsx
+tron file -d 'myFolder/myFile.txt'
 ```
-or run python file:
+creates ```myfile_000.txt```
+
+### Backup File
 ```
-python __main__.py -l 'Portland, OR' -q 'Software Engineer' -o jobsearch.xlsx
+tron file -d 'myFolder/myFile.txt'
 ```
-run example:
-```
-python example.py
-```
+creates ```myFile_backup.txt```
 
 # Installation
 ```
-git clone http://github.com/patomation/indeed-scraper ~/.indeed-scraper
+git clone http://github.com/patomation/indeed-scraper ~/.tron
 ```
 
 ```
-echo 'alias indeed="python ~/.indeed-scraper/"' >> ~/.bashrc
+echo 'alias indeed="python ~/.tron/"' >> ~/.bashrc
 ```
 
 ## Getting Started
