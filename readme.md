@@ -31,13 +31,39 @@ echo 'alias indeed="python ~/.tron/"' >> ~/.bashrc
 ```
 
 ## Getting Started
-Install all the dependencies
+Install all the dependencies in requirements.txt
 ```
-pip install requests
-pip install beautifulsoup4
-pip install xlsxwriter
-pip install argparse
+pip install -r requirements.txt
 ```
-...and more....
+
+## Development
+Install virtual environment
+```
+$ python3 -m pip install --user virtualenv
+```
+Create New Environment:
+```
+$ python3 -m venv env
+python 2:
+$ python -m virtualenv env
+```
+Activate environment
+```
+source env/bin/activate
+```
+Deactivate Environment
+```
+deactivate
+```
+Install dependencies:
+```
+pip install -r requirements.txt
+```
+Save dependencies:
+```
+pip freeze > requirements.txt
+```
+
+[More About this](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
 
 ## Going Forward
