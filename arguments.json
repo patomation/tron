@@ -28,7 +28,28 @@
           "help":"URL",
           "action": "store",
           "required": "True"
+        },
+        "-e": {
+          "help":"Email",
+          "action": "store",
+          "required": "False"
+        },
+        "-l": {
+          "help":"Location",
+          "action": "store",
+          "required": "False"
+        },
+        "-n": {
+          "help":"Notes",
+          "action": "store",
+          "required": "False"
+        },
+        "-t": {
+          "help":"Type Of Application Email, Online, Ect",
+          "action": "store",
+          "required": "False"
         }
+
     }
   },
   "-V":{

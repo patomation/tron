@@ -25,7 +25,7 @@ def addSubArgument(name, help, args):
             argName,
             help=arg['help'],
             action=check(data=arg,key='action',default='store'),
-            required=check(data=arg,key='required',default='required')
+            required=check(data=arg,key='required',default=False)
         )
 
 def addArgument(name, help, action, required):

@@ -14,5 +14,9 @@ def run(args):
     elif args.which == 'job_applied':
         job.applied(
             company=args.c,
+            aplicationType=args.t,
             position=args.p,
-            url=args.url)
+            url=args.url,
+            email=args.e,
+            location=args.l,
+            notes=args.n)
