@@ -11,6 +11,12 @@
         }
     }
   },
+  "xlaunch":{
+    "name":"xlaunch",
+    "help":"Start x Server from config file",
+    "args":{
+    }
+  },
   "job_applied":{
     "help":"Save a job you just applied for",
     "args":{

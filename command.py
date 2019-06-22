@@ -1,9 +1,12 @@
 # Command Argument Functions
-from modules import gatekeeper, backup, duplicate
+from modules import gatekeeper, backup, duplicate, Json
 
-from commands import job
+config = Json.importer('/config.json')
+
+from commands import job, xlaunch
 
 def run(args):
+    print args.which + ' command activated:'
 
     if args.which == 'file':
         if args.d:
@@ -20,3 +23,5 @@ def run(args):
             email=args.e,
             location=args.l,
             notes=args.n)
+    elif args.which == 'xlaunch':
+        xlaunch.start(config)
