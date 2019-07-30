@@ -7,7 +7,7 @@ alphabet = str(string.ascii_uppercase)
 # workbook = xlrd.open_workbook(path)
 
 def append(path, data):
-    workbook = load_workbook(filename = path)
+    workbook = load_workbook(path)
     worksheet = workbook.worksheets[0]
     nextRow = worksheet.max_row + 1
     index = 1
@@ -17,7 +17,7 @@ def append(path, data):
             column=index,
             value=item)
         index += 1
-    workbook.save(filename = path);
+    workbook.save(path);
 
 # props
 # - fileName
