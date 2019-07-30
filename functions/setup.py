@@ -12,13 +12,13 @@ def run(args):
     jobApplicationLog = ''
 
     while True:
-        jobApplicationLog = raw_input("jobApplicationLog Path [{}]: ".format(jobApplicationLog) ) or jobApplicationLog
+        jobApplicationLog = input("jobApplicationLog Path [{}]: ".format(jobApplicationLog) ) or jobApplicationLog
 
         print('')
         print('jobApplicationLog:', jobApplicationLog)
         print('')
 
-        ok = raw_input("is this ok? [y/n] :") or "y"
+        ok = input("is this ok? [y/n] :") or "y"
 
         if ok == 'y' or ok == 'Y' or ok == 'Yes' or ok == 'YES':
             config.save({

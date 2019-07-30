@@ -25,13 +25,13 @@ def run(args):
         notes=''
 
         while True:
-            companyName = raw_input("Company Name [{}]: ".format(companyName) ) or companyName
-            aplicationType = raw_input("Application Type [{}]: ".format(aplicationType) ) or aplicationType
-            position = raw_input("Position Applied For [{}]: ".format(position) ) or position
-            url = raw_input("URL [{}]: ".format(url) ) or url
-            email = raw_input("Email [{}]: ".format(email) ) or email
-            location = raw_input("Location [{}]: ".format(location) ) or location
-            notes = raw_input("Notes [{}]: ".format(notes) ) or notes
+            companyName = input("Company Name [{}]: ".format(companyName) ) or companyName
+            aplicationType = input("Application Type [{}]: ".format(aplicationType) ) or aplicationType
+            position = input("Position Applied For [{}]: ".format(position) ) or position
+            url = input("URL [{}]: ".format(url) ) or url
+            email = input("Email [{}]: ".format(email) ) or email
+            location = input("Location [{}]: ".format(location) ) or location
+            notes = input("Notes [{}]: ".format(notes) ) or notes
             print('')
             print('companyName:', companyName)
             print('aplicationType:', aplicationType)
@@ -42,7 +42,7 @@ def run(args):
             print('notes:', notes)
             print('')
 
-            ok = raw_input("is this ok? [y/n] :") or "y"
+            ok = input("is this ok? [y/n] :") or "y"
 
             if ok == 'y' or ok == 'Y' or ok == 'Yes' or ok == 'YES' or ok == '':
 
