@@ -1,11 +1,7 @@
 # TRON CLI - Python
 
 My attempt to make a command line interface helper inspired by the movie Tron.
-In the movie Flynn as a command line AI called Tron. I thought it would be cool to name my utility the same. Although not an ai... yet, it has the potential to be the starting point of all my automation of boring stuff.
-
-So far it doesn't do much aside from copying files in two different ways.
-
-Going forward I would like to add job search helpers and task helpers to update excel files and documents that I use daily.
+In the movie Flynn college, Allen, wrote a security program  called Tron. I thought it would be cool to name my utility the same. It's not a security program or an ai. Though, it has the potential to be the starting point of all my automation of boring stuff. I needed a place to start gathering all my scrips and tools.
 
 
 # USAGE
@@ -67,3 +63,46 @@ pip freeze > requirements.txt
 [More About this](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
 
 ## Going Forward
+
+### CLU
+
+Request access to clue program
+code 6 password to memory 0222
+
+Request Status report on missing data
+
+Illegal Code
+CLU program detached from system
+
+Request...Access to CLU program
+Last location: high clearance memory
+
+### Tron
+```
+From the movie:
+A security program.
+Monitors all contacts between company systems and other systems.
+Finds anything that's not scheduled and shuts it down.
+Runs independently from master control program.
+Watchdogs the MCP as well.
+
+```
+
+Address file empty
+Tron program unavailable
+
+Request:
+Master Control program
+Release Tron JA 307020...
+I have priority access 7
+
+
+
+### Master Control
+request access to master control program,
+user code 00-Dillinger.
+password: master.
+
+There's a 68.71% chance you're right.
+
+End of line.
