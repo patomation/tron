@@ -9,7 +9,7 @@ def options():
 
 def run(args):
 
-    jobApplicationLog = 'C:\Users\patrick\Google Drive\Resumes\_APPLICATION-LOG.xlsx'
+    jobApplicationLog = ''
 
     while True:
         jobApplicationLog = raw_input("jobApplicationLog Path [{}]: ".format(jobApplicationLog) ) or jobApplicationLog
