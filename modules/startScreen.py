@@ -1,7 +1,12 @@
 from os import system
+import platform
+
 
 def clear():
-    _ = system('clear')
+    if platform.system() == 'Windows':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 def show():
     # Clear Screen

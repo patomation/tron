@@ -1,5 +1,5 @@
 # Command Argument Functions
-from modules import gatekeeper, backup, duplicate, Json
+from modules import backup, duplicate, Json
 
 config = Json.importer('/config.json')
 
