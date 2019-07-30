@@ -19,10 +19,9 @@ def addSubArgument(name, help, args):
     newSubParser.set_defaults(which=name)
 
     # Add sub parser flags
-    for argName in args:
-        arg = args[argName]
+    for arg in args:
         newSubParser.add_argument(
-            argName,
+            arg['name'],
             help=arg['help'],
             action=check(data=arg,key='action',default='store'),
             required=check(data=arg,key='required',default=False)
@@ -36,39 +35,5 @@ def addArgument(name, help, action, required):
         required=required
     )
 
-# PROPS
-# - arguments - dict
-def addArguments(arguments):
-    for name in arguments:
-        argument = arguments[name]
-        # Flagged arguments
-        if name[:1] == '-':
-            addArgument(
-                name=name,
-                help=argument['help'],
-                action=check(data=argument, key='action', default=True),
-                required=check(data=argument, key='required', default=False)
-            )
-        # Sub arguments
-        else:
-            addSubArgument(
-                name=name,
-                help=argument['help'],
-                args=argument['args'])
-
-
-
-
-# PROPS
-# - name - String: sub parser name
-# - args - Object: Key name Value help description
-def add(props):
-    # Create new sub parser
-    newSubParser = subparser.add_parser(props['name'])
-    # Set which arg so we can find it later
-    newSubParser.set_defaults(which=props['name'])
-    for key in props['args']:
-        newSubParser.add_argument(key, help=props['args'][key])
-
-def getArgs():
+def parse_args():
     return parser.parse_args()

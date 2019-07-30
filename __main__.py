@@ -1,15 +1,26 @@
-from modules import startScreen, Json, parser
-arguments = Json.importer('/arguments.json')
-import command
+import argparse
+from modules import startScreen, parser
+import importFolder
 
 def main():
     startScreen.show();
 
-    # Add all arguments from arguments config file
-    parser.addArguments(arguments)
+    # Import functions and apply thier args
+    functions = importFolder.all('functions')
+    for key in functions:
+        options = functions[key].options()
+        parser.addSubArgument(
+            name=key,
+            help=options['help'],
+            args=options['args']
+        )
 
-    command.run( parser.getArgs() )
-
+    # Get all args
+    args = parser.parse_args()
+    print '--------------------'
+    print args
+    # Runn sub arg function
+    functions[args.which].run(args);
 
 
 if __name__ == "__main__":
