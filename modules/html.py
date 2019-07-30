@@ -5,7 +5,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleW
 
 def parse(url):
 
-    print '...Scraping...'
+    print('...Scraping...')
 
     response = requests.get(url, headers=headers)
     return BeautifulSoup(response.text, 'html.parser')

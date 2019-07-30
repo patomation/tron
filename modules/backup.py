@@ -3,7 +3,7 @@ from shutil import copyfile
 import ntpath
 
 def file(sourcePath):
-    print 'creating backup copy...'
+    print('creating backup copy...')
     path, file = ntpath.split(sourcePath)
     fileName, extension = file.split('.')
 
@@ -11,6 +11,6 @@ def file(sourcePath):
         path = path +'/'
 
     destinationPath = path + fileName +'_backup'+'.'+ extension
-    print sourcePath
-    print destinationPath
+    print(sourcePath)
+    print(destinationPath)
     copyfile(sourcePath, destinationPath)

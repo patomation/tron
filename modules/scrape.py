@@ -24,4 +24,4 @@ def scrape(props):
     }
 
     for key in data:
-        print key + ': ' + data[key]
+        print(key + ': ' + data[key])

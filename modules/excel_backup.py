@@ -5,14 +5,11 @@ import string
 alphabet = str(string.ascii_uppercase)
 
 def open(file):
-    print 'open file'
-    print file
 
 # props
 # - fileName
 # - culloms
 def write(props):
-    print 'WRITE EXCEL-----------------------------'
 
     # Make excell file
     workbook = xlsxwriter.Workbook(props['fileName'])
@@ -50,7 +47,6 @@ def write(props):
                 break
         rownumber += 1
 
-    print 'close....'
     workbook.close()
 
 

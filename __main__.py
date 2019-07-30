@@ -17,8 +17,6 @@ def main():
 
     # Get all args
     args = parser.parse_args()
-    print '--------------------'
-    print args
     # Runn sub arg function
     functions[args.which].run(args);
 

@@ -3,7 +3,6 @@ from shutil import copyfile
 import ntpath
 
 def getNextNumber(oldNumber):
-    print oldNumber
     newInteger = int(oldNumber) + 1
     newInegerString = str(newInteger)
 
@@ -18,7 +17,7 @@ def getNextNumber(oldNumber):
     return newNumber
 
 def file(sourcePath):
-    print 'duplicating file...'
+    print('duplicating file...')
     path, file = ntpath.split(sourcePath)
     fileName, extension = file.split('.')
 
@@ -31,12 +30,12 @@ def file(sourcePath):
     # is not version number
     else:
         fileName = fileName + '_000'
-    
+
     if path:
         path = path +'/'
 
     destinationPath = path + fileName +'.'+ extension
 
-    print sourcePath
-    print destinationPath
+    print(sourcePath)
+    print(destinationPath)
     copyfile(sourcePath, destinationPath)

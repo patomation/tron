@@ -12,8 +12,6 @@ def options():
     }
 
 def run(args):
-    print 'run function'
-    print args
 
     # Job Applied
     if args.a == True:
@@ -34,20 +32,19 @@ def run(args):
             email = raw_input("Email [{}]: ".format(email) ) or email
             location = raw_input("Location [{}]: ".format(location) ) or location
             notes = raw_input("Notes [{}]: ".format(notes) ) or notes
-            print ''
-            print 'companyName:', companyName
-            print 'aplicationType:', aplicationType
-            print 'position:', position
-            print 'url:', url
-            print 'email:', email
-            print 'location:', location
-            print 'notes:', notes
-            print ''
+            print('')
+            print('companyName:', companyName)
+            print('aplicationType:', aplicationType)
+            print('position:', position)
+            print('url:', url)
+            print('email:', email)
+            print('location:', location)
+            print('notes:', notes)
+            print('')
 
             ok = raw_input("is this ok? [y/n] :") or "y"
 
             if ok == 'y' or ok == 'Y' or ok == 'Yes' or ok == 'YES' or ok == '':
-                print 'SAVE'
 
                 excel.append(
                     path=config.get('jobApplicationLog'),

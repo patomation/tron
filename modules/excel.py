@@ -6,16 +6,13 @@ alphabet = str(string.ascii_uppercase)
 import expandUserPath
 
 # workbook = xlrd.open_workbook(path)
-# print workbook.sheets()[0].cell(1,0)
 
 def append(path, data):
     workbook = load_workbook(filename = expandUserPath.get(path))
-    # print workbook.sheetnames
     worksheet = workbook.worksheets[0]
     nextRow = worksheet.max_row + 1
     index = 1
     for item in data:
-        print item
         worksheet.cell(
             row=nextRow,
             column=index,
@@ -27,8 +24,6 @@ def append(path, data):
 # - fileName
 # - culloms
 def write(props):
-    print 'WRITE EXCEL-----------------------------'
-
     # Make excell file
     workbook = xlsxwriter.Workbook(props['fileName'])
     worksheet = workbook.add_worksheet()
@@ -65,7 +60,6 @@ def write(props):
                 break
         rownumber += 1
 
-    print 'close....'
     workbook.close()
 
 
