@@ -3,12 +3,11 @@ import xlsxwriter, xlwt, xlrd
 from openpyxl import load_workbook
 import os
 alphabet = str(string.ascii_uppercase)
-import expandUserPath
 
 # workbook = xlrd.open_workbook(path)
 
 def append(path, data):
-    workbook = load_workbook(filename = expandUserPath.get(path))
+    workbook = load_workbook(filename = path)
     worksheet = workbook.worksheets[0]
     nextRow = worksheet.max_row + 1
     index = 1
@@ -18,7 +17,7 @@ def append(path, data):
             column=index,
             value=item)
         index += 1
-    workbook.save(filename = expandUserPath.get(path));
+    workbook.save(filename = path);
 
 # props
 # - fileName
